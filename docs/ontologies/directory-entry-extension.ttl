@@ -1,0 +1,54 @@
+@prefix cco: <https://www.commoncoreontologies.org/> .
+@prefix entry: <https://example.org/church-directory/entry#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+entry:ContactLocationDescription a owl:Class ;
+    rdfs:label "Contact Location Description"@en ;
+    rdfs:subClassOf cco:ont00000853 ;
+    skos:definition "A Descriptive Information Content Entity that associates a person with a geospatial region for contact purposes."@en .
+
+entry:FamilyName a owl:Class ;
+    rdfs:label "Family Name Component"@en ;
+    rdfs:subClassOf cco:ont00000003 ;
+    skos:definition "A Designative Name that is a family name component of a person's proper name."@en .
+
+entry:GivenName a owl:Class ;
+    rdfs:label "Given Name Component"@en ;
+    rdfs:subClassOf cco:ont00000003 ;
+    skos:definition "A Designative Name that is a given name component of a person's proper name."@en .
+
+entry:MiddleName a owl:Class ;
+    rdfs:label "Middle Name Component"@en ;
+    rdfs:subClassOf cco:ont00000003 ;
+    skos:definition "A Designative Name that is a middle name component of a person's proper name."@en .
+
+entry:NamePrefix a owl:Class ;
+    rdfs:label "Name Prefix Component"@en ;
+    rdfs:subClassOf cco:ont00000003 ;
+    skos:definition "A Designative Name that is a name prefix component of a person's proper name."@en .
+
+entry:NameSuffix a owl:Class ;
+    rdfs:label "Name Suffix Component"@en ;
+    rdfs:subClassOf cco:ont00000003 ;
+    skos:definition "A Designative Name that is a name suffix component of a person's proper name."@en .
+
+entry:PostalAddress a owl:Class ;
+    rdfs:label "Postal Address Identifier"@en ;
+    rdfs:subClassOf cco:ont00000390 ;
+    skos:definition "A Spatial Region Identifier that designates a region using postal delivery addressing conventions."@en .
+
+entry:SourceFieldValue a owl:Class ;
+    rdfs:label "Source Field Value"@en ;
+    rdfs:subClassOf cco:ont00000853 ;
+    skos:definition "A Descriptive Information Content Entity that preserves the lexical value of a directory input field, designated by a code identifier naming that field."@en .
+
+entry:TelephoneNumber a owl:Class ;
+    rdfs:label "Telephone Number Identifier"@en ;
+    rdfs:subClassOf cco:ont00000077 ;
+    skos:definition "A Code Identifier that designates a telecommunication endpoint within a telephone numbering plan."@en .
+
+entry:ontology a owl:Ontology ;
+    owl:imports <https://example.org/church-directory/ontology#ontology> .
+
