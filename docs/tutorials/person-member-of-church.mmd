@@ -1,0 +1,32 @@
+flowchart LR
+  classDef owlClass fill:lightyellow,stroke:yellow,color:#000;
+  classDef owlNamedIndividual fill:lightblue,stroke:blue,color:#000;
+  classDef owlAnnotationProperty fill:#ffd8b1,stroke:orange,color:#000;
+  classDef owlDatatypeProperty fill:lightgreen,stroke:green,color:#000;
+
+  subgraph Instances
+    p1["ex:person_001<br/>Person instance"]
+    mr1["ex:membershipRole_001<br/>Membership Role instance"]
+    ch1["ex:church_001<br/>Church Organization instance"]
+  end
+
+  subgraph Classes
+    pc["cco2:Person<br/>https://www.commoncoreontologies.org/ont00001262"]
+    cmc["church:ChurchMember<br/>https://example.org/church-directory/ontology#ont00000302"]
+    mrc["church:CommunicantChurchMemberRole<br/>https://example.org/church-directory/ontology#ont00000015"]
+    chc["church:LocalChurchOrganization<br/>https://example.org/church-directory/ontology#ont00000102"]
+  end
+
+  p1 -->|"is bearer of<br/>http://purl.obolibrary.org/obo/BFO_0000196"| mr1
+  mr1 -->|"has organizational context<br/>https://www.commoncoreontologies.org/ont00001992"| ch1
+
+  p1 -.->|"rdf:type<br/>http://www.w3.org/1999/02/22-rdf-syntax-ns#type"| pc
+  p1 -.->|"rdf:type<br/>http://www.w3.org/1999/02/22-rdf-syntax-ns#type"| cmc
+  mr1 -.->|"rdf:type<br/>http://www.w3.org/1999/02/22-rdf-syntax-ns#type"| mrc
+  ch1 -.->|"rdf:type<br/>http://www.w3.org/1999/02/22-rdf-syntax-ns#type"| chc
+
+  pc -->|"is bearer of<br/>http://purl.obolibrary.org/obo/BFO_0000196"| mrc
+  mrc -->|"has organizational context<br/>https://www.commoncoreontologies.org/ont00001992"| chc
+
+  class p1,mr1,ch1 owlNamedIndividual;
+  class pc,cmc,mrc,chc owlClass;

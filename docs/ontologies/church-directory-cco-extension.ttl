@@ -1,6 +1,6 @@
 @prefix church: <https://example.org/church-directory/ontology#> .
-@prefix cco: <https://www.commoncoreontologies.org/> .
-@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix cco2: <https://www.commoncoreontologies.org/> .
+@prefix bfo: <http://purl.obolibrary.org/obo/BFO_> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -20,14 +20,14 @@ church:ontology a owl:Ontology ;
 # ---------------------------------------------------------------------------
 # The intended baptism/date instance pattern is:
 #
-#   :person bfo:BFO_0000056 :baptism .
-#   :baptism bfo:BFO_0000199 :day .
-#   :day a cco:ont00000800 ;
-#       cco:ont00001879 :dateIdentifier .
-#   :dateIdentifier a cco:ont00000529 ;
-#       cco:ont00001765 "2000-01-01" .
+#   :person bfo:0000056 :baptism .
+#   :baptism bfo:0000199 :day .
+#   :day a cco2:ont00000800 ;
+#       cco2:ont00001879 :dateIdentifier .
+#   :dateIdentifier a cco2:ont00000529 ;
+#       cco2:ont00001765 "2000-01-01" .
 #
-# CCO 2.2 currently gives cco:ont00001765 ("has text value") the domain
+# CCO 2.2 currently gives cco2:ont00001765 ("has text value") the domain
 # Information Bearing Entity and marks the property deprecated. This extension
 # deliberately does NOT add a second rdfs:domain axiom. In RDFS, multiple
 # domain axioms are conjunctive, so adding BFO Continuant would not relax the
@@ -42,7 +42,7 @@ church:ont00000001 a owl:Class ;
                "Rolle eines kirchlichen Amtsträgers"@de ,
                "Rol de oficial eclesiástico"@es ,
                "Rôle d'officier ecclésiastique"@fr ;
-    rdfs:subClassOf cco:ont00000175 ;
+    rdfs:subClassOf cco2:ont00000175 ;
     skos:definition "An Organization Member Role that is borne by a person in virtue of being entrusted with an ecclesiastical office in a church organization."@en ;
     dcterms:bibliographicCitation "Presbyterian Church in America. Book of Church Order. https://www.pcahistory.org/bco/"@en ;
     skos:example "The office-bearing role of an elder or deacon in a particular church."@en .
@@ -132,7 +132,7 @@ church:ont00000010 a owl:Class ;
                "Rolle eines Pastoralpraktikanten"@de ,
                "Rol de pasante pastoral"@es ,
                "Rôle de stagiaire pastoral"@fr ;
-    rdfs:subClassOf cco:ont00000175 ;
+    rdfs:subClassOf cco2:ont00000175 ;
     skos:definition "An Organization Member Role that is borne by a person receiving supervised preparation for pastoral ministry within a church organization."@en ;
     dcterms:bibliographicCitation "Presbyterian Church in America. Book of Church Order. https://www.pcahistory.org/bco/"@en ;
     skos:example "A seminary student serving a supervised pastoral internship in a congregation."@en .
@@ -142,7 +142,7 @@ church:ont00000011 a owl:Class ;
                "Rolle eines Kandidaten unter Obhut eines Presbyteriums"@de ,
                "Rol de candidato bajo cuidado del presbiterio"@es ,
                "Rôle de candidat sous la responsabilité d'un presbytère"@fr ;
-    rdfs:subClassOf cco:ont00000175 ;
+    rdfs:subClassOf cco2:ont00000175 ;
     skos:definition "An Organization Member Role that is borne by a person formally received under the oversight of a presbytery as a candidate preparing for ordained ministry."@en ;
     dcterms:bibliographicCitation "Presbyterian Church in America. Book of Church Order. https://www.pcahistory.org/bco/"@en ;
     skos:example "A theological student who has been received under care by a PCA presbytery."@en .
@@ -162,7 +162,7 @@ church:ont00000013 a owl:Class ;
                "Rolle eines Diakonieassistenten"@de ,
                "Rol de asistente de diáconos"@es ,
                "Rôle d'assistant aux diacres"@fr ;
-    rdfs:subClassOf cco:ont00000175 ;
+    rdfs:subClassOf cco2:ont00000175 ;
     skos:definition "An Organization Member Role that is borne by a person formally appointed to assist deacons in carrying out ministries of service and mercy without thereby holding the office of deacon."@en ;
     dcterms:bibliographicCitation "Presbyterian Church in America. Book of Church Order. https://www.pcahistory.org/bco/"@en ;
     skos:example "A church member appointed to assist a board of deacons with mercy ministry."@en .
@@ -172,7 +172,7 @@ church:ont00000014 a owl:Class ;
                "Kirchenmitgliedsrolle"@de ,
                "Rol de miembro de iglesia"@es ,
                "Rôle de membre d'église"@fr ;
-    rdfs:subClassOf cco:ont00000175 ;
+    rdfs:subClassOf cco2:ont00000175 ;
     skos:definition "An Organization Member Role that is borne by a person in virtue of having been admitted to the membership of a particular church organization."@en ;
     dcterms:bibliographicCitation "Presbyterian Church in America. Book of Church Order. https://www.pcahistory.org/bco/"@en ;
     skos:example "A person whose name is entered on the membership roll of a particular church."@en .
@@ -226,7 +226,7 @@ church:ont00000019 a owl:Class ;
                "Rolle eines regelmäßigen Kirchgängers"@de ,
                "Rol de asistente habitual a la iglesia"@es ,
                "Rôle de participant régulier à l'église"@fr ;
-    rdfs:subClassOf bfo:BFO_0000023 ;
+    rdfs:subClassOf bfo:0000023 ;
     skos:definition "A Role that is borne by a person in virtue of regularly attending the activities of a church organization without thereby being a member of that organization."@en ;
     skos:altLabel "Regular Attender Role"@en ;
     dcterms:bibliographicCitation "Wikipedia contributors. Church service. https://en.wikipedia.org/wiki/Church_service"@en ;
@@ -248,7 +248,7 @@ church:ont00000021 a owl:Class ;
                "Rolle einer exkommunizierten Person"@de ,
                "Rol de persona excomulgada"@es ,
                "Rôle de personne excommuniée"@fr ;
-    rdfs:subClassOf bfo:BFO_0000023 ;
+    rdfs:subClassOf bfo:0000023 ;
     skos:definition "A Role that is borne by a person in virtue of having been formally excluded from the communion and membership of a church by ecclesiastical judgment."@en ;
     skos:altLabel "Excommunicated Role"@en ;
     dcterms:bibliographicCitation "Wikipedia contributors. Excommunication. https://en.wikipedia.org/wiki/Excommunication"@en ;
@@ -259,7 +259,7 @@ church:ont00000022 a owl:Class ;
                "Rolle einer der Seelsorge zugewiesenen Person"@de ,
                "Rol de persona asignada al cuidado pastoral"@es ,
                "Rôle de personne assignée au suivi pastoral"@fr ;
-    rdfs:subClassOf bfo:BFO_0000023 ;
+    rdfs:subClassOf bfo:0000023 ;
     skos:definition "A Role that is borne by a person in virtue of being assigned to the pastoral-care responsibility of a designated pastor or elder."@en ;
     dcterms:bibliographicCitation "Presbyterian Church in America. Book of Church Order. https://www.pcahistory.org/bco/"@en ;
     skos:example "A member assigned to a particular elder for regular shepherding contact."@en .
@@ -269,7 +269,7 @@ church:ont00000101 a owl:Class ;
                "Kirchenorganisation"@de ,
                "Organización eclesial"@es ,
                "Organisation ecclésiale"@fr ;
-    rdfs:subClassOf cco:ont00001180 ;
+    rdfs:subClassOf cco2:ont00001180 ;
     skos:definition "An Organization that is constituted for enduring corporate Christian worship, ministry, discipline, and fellowship."@en ;
     dcterms:bibliographicCitation "Wikipedia contributors. Christian Church. https://en.wikipedia.org/wiki/Christian_Church"@en ;
     skos:example "The Presbyterian Church in America as an ecclesial organization."@en .
@@ -290,7 +290,7 @@ church:ont00000103 a owl:Class ;
                "Kirchliche Sitzungsorganisation"@de ,
                "Organización de sesión eclesiástica"@es ,
                "Organisation de conseil presbytéral local"@fr ;
-    rdfs:subClassOf cco:ont00001180 ;
+    rdfs:subClassOf cco2:ont00001180 ;
     skos:definition "An Organization that is a local Presbyterian church court constituted by the pastor or pastors and ruling elders having jurisdiction over a particular church."@en ;
     skos:altLabel "Session"@en ;
     dcterms:bibliographicCitation "Presbyterian Church in America. Book of Church Order. https://www.pcahistory.org/bco/"@en ;
@@ -301,7 +301,7 @@ church:ont00000104 a owl:Class ;
                "Presbyteriumsorganisation"@de ,
                "Organización de presbiterio"@es ,
                "Organisation de presbytère"@fr ;
-    rdfs:subClassOf cco:ont00001180 ;
+    rdfs:subClassOf cco2:ont00001180 ;
     skos:definition "An Organization that is a regional Presbyterian church court constituted by ministers and representatives of particular churches within its jurisdiction."@en ;
     skos:altLabel "Presbytery"@en ;
     dcterms:bibliographicCitation "Wikipedia contributors. Presbytery (church polity). https://en.wikipedia.org/wiki/Presbytery_(church_polity)"@en ;
@@ -312,7 +312,7 @@ church:ont00000105 a owl:Class ;
                "Klassis-Organisation"@de ,
                "Organización de classis"@es ,
                "Organisation de classe ecclésiastique"@fr ;
-    rdfs:subClassOf cco:ont00001180 ;
+    rdfs:subClassOf cco2:ont00001180 ;
     skos:definition "An Organization that is a regional Reformed church assembly constituted by office-bearers or representatives of multiple local churches."@en ;
     skos:altLabel "Classis"@en ;
     dcterms:bibliographicCitation "Wikipedia contributors. Classis (ecclesiastical). https://en.wikipedia.org/wiki/Classis_(ecclesiastical)"@en ;
@@ -323,7 +323,7 @@ church:ont00000106 a owl:Class ;
                "Synodenorganisation"@de ,
                "Organización sinodal"@es ,
                "Organisation synodale"@fr ;
-    rdfs:subClassOf cco:ont00001180 ;
+    rdfs:subClassOf cco2:ont00001180 ;
     skos:definition "An Organization that is an ecclesiastical assembly constituted by representatives of subordinate church bodies for governance or deliberation at a broader level."@en ;
     skos:altLabel "Synod"@en ;
     dcterms:bibliographicCitation "Wikipedia contributors. Synod. https://en.wikipedia.org/wiki/Synod"@en ;
@@ -334,7 +334,7 @@ church:ont00000107 a owl:Class ;
                "Diözesanorganisation"@de ,
                "Organización diocesana"@es ,
                "Organisation diocésaine"@fr ;
-    rdfs:subClassOf cco:ont00001180 ;
+    rdfs:subClassOf cco2:ont00001180 ;
     skos:definition "An Organization that is an ecclesiastical jurisdiction comprising multiple congregations or parishes under the oversight of a bishop."@en ;
     skos:altLabel "Diocese"@en ;
     dcterms:bibliographicCitation "Wikipedia contributors. Diocese. https://en.wikipedia.org/wiki/Diocese"@en ;
@@ -356,7 +356,7 @@ church:ont00000109 a owl:Class ;
                "Episkopatsorganisation"@de ,
                "Organización episcopal"@es ,
                "Organisation épiscopale"@fr ;
-    rdfs:subClassOf cco:ont00001180 ;
+    rdfs:subClassOf cco2:ont00001180 ;
     skos:definition "An Organization that is constituted by bishops or episcopal offices for the corporate exercise of episcopal oversight."@en ;
     skos:altLabel "Episcopate"@en ;
     dcterms:bibliographicCitation "Wikipedia contributors. Episcopal polity. https://en.wikipedia.org/wiki/Episcopal_polity"@en ;
@@ -367,7 +367,7 @@ church:ont00000110 a owl:Class ;
                "Bistumsorganisation"@de ,
                "Organización de obispado"@es ,
                "Organisation d'évêché"@fr ;
-    rdfs:subClassOf cco:ont00001180 ;
+    rdfs:subClassOf cco2:ont00001180 ;
     skos:definition "An Organization that constitutes an ecclesiastical jurisdiction or administrative body associated with the office and oversight of a bishop."@en ;
     skos:altLabel "Bishopric"@en ;
     dcterms:bibliographicCitation "Wikipedia contributors. Diocese. https://en.wikipedia.org/wiki/Diocese"@en ;
@@ -378,7 +378,7 @@ church:ont00000111 a owl:Class ;
                "Diakonatsorganisation"@de ,
                "Organización diaconal"@es ,
                "Organisation diaconale"@fr ;
-    rdfs:subClassOf cco:ont00001180 ;
+    rdfs:subClassOf cco2:ont00001180 ;
     skos:definition "An Organization that is constituted by deacons for the coordinated exercise of ecclesiastical service, mercy, and stewardship."@en ;
     skos:altLabel "Diaconate"@en ;
     dcterms:bibliographicCitation "Wikipedia contributors. Deacon. https://en.wikipedia.org/wiki/Deacon"@en ;
@@ -389,7 +389,7 @@ church:ont00000112 a owl:Class ;
                "Generalversammlungsorganisation"@de ,
                "Organización de asamblea general"@es ,
                "Organisation d'assemblée générale"@fr ;
-    rdfs:subClassOf cco:ont00001180 ;
+    rdfs:subClassOf cco2:ont00001180 ;
     skos:definition "An Organization that is the highest representative Presbyterian church court constituted by commissioners from subordinate church courts."@en ;
     skos:altLabel "General Assembly"@en ;
     dcterms:bibliographicCitation "Presbyterian Church in America. Book of Church Order. https://www.pcahistory.org/bco/"@en ;
@@ -411,7 +411,7 @@ church:ont00000201 a owl:Class ;
                "Kirchlicher Verwaltungsakt"@de ,
                "Acto administrativo eclesiástico"@es ,
                "Acte administratif ecclésiastique"@fr ;
-    rdfs:subClassOf cco:ont00000228 ;
+    rdfs:subClassOf cco2:ont00000228 ;
     skos:definition "A Planned Act that is performed by or under the authority of a church organization to establish, modify, recognize, or terminate an ecclesiastical status, office, membership, or assignment."@en ;
     dcterms:bibliographicCitation "Presbyterian Church in America. Book of Church Order. https://www.pcahistory.org/bco/"@en ;
     skos:example "A session formally receiving a person into church membership."@en .
@@ -421,7 +421,7 @@ church:ont00000202 a owl:Class ;
                "Christlicher Sakramentsritus"@de ,
                "Rito sacramental cristiano"@es ,
                "Rite sacramentel chrétien"@fr ;
-    rdfs:subClassOf cco:ont00000228 ;
+    rdfs:subClassOf cco2:ont00000228 ;
     skos:definition "A Planned Act that is performed as a Christian sacramental rite recognized by the participating church organization."@en ;
     dcterms:bibliographicCitation "Wikipedia contributors. Baptism. https://en.wikipedia.org/wiki/Baptism"@en ;
     skos:example "A Christian baptism or celebration of the Lord's Supper."@en .
@@ -431,7 +431,7 @@ church:ont00000203 a owl:Class ;
                "Kirchliche Versammlung"@de ,
                "Reunión eclesiástica"@es ,
                "Réunion ecclésiastique"@fr ;
-    rdfs:subClassOf cco:ont00000228 ;
+    rdfs:subClassOf cco2:ont00000228 ;
     skos:definition "A Planned Act in which members or representatives of a church organization assemble for ecclesiastical deliberation, governance, worship, or administration."@en ;
     dcterms:bibliographicCitation "Presbyterian Church in America. Book of Church Order. https://www.pcahistory.org/bco/"@en ;
     skos:example "A duly constituted meeting of a church session."@en .
@@ -509,7 +509,7 @@ church:ont00000210 a owl:Class ;
                "Religiöser Konfirmationsakt"@de ,
                "Acto de confirmación religiosa"@es ,
                "Acte de confirmation religieuse"@fr ;
-    rdfs:subClassOf cco:ont00000228 ;
+    rdfs:subClassOf cco2:ont00000228 ;
     skos:definition "A Planned Act in which a baptized Christian publicly confirms or is confirmed in a profession of faith according to the practice of a church."@en ;
     skos:altLabel "Act of Religious Confirmation"@en ;
     dcterms:bibliographicCitation "Wikipedia contributors. Confirmation. https://en.wikipedia.org/wiki/Confirmation"@en ;
@@ -553,7 +553,7 @@ church:ont00000214 a owl:Class ;
                "Christlicher Gottesdienst"@de ,
                "Servicio de culto cristiano"@es ,
                "Service de culte chrétien"@fr ;
-    rdfs:subClassOf cco:ont00000228 ;
+    rdfs:subClassOf cco2:ont00000228 ;
     skos:definition "A Planned Act in which a Christian congregation assembles for corporate worship through acts such as prayer, praise, preaching, sacramental observance, or confession."@en ;
     skos:altLabel "Worship Service"@en ;
     dcterms:bibliographicCitation "Wikipedia contributors. Church service. https://en.wikipedia.org/wiki/Church_service"@en ;
@@ -595,7 +595,7 @@ church:ont00000218 a owl:Class ;
                "Öffentlicher Glaubensbekenntnisakt"@de ,
                "Acto público de profesión de fe"@es ,
                "Acte public de profession de foi"@fr ;
-    rdfs:subClassOf cco:ont00000228 ;
+    rdfs:subClassOf cco2:ont00000228 ;
     skos:definition "A Planned Act in which a person publicly affirms Christian faith and commitment before a church or its authorized officers."@en ;
     dcterms:bibliographicCitation "Presbyterian Church in America. Book of Church Order. https://www.pcahistory.org/bco/"@en ;
     skos:example "A baptized covenant member making a credible profession of faith before admission to the Lord's Table."@en .
@@ -615,7 +615,7 @@ church:ont00000301 a owl:Class ;
                "Pastor als Person"@de ,
                "Pastor como persona"@es ,
                "Pasteur en tant que personne"@fr ;
-    rdfs:subClassOf cco:ont00001262 ;
+    rdfs:subClassOf cco2:ont00001262 ;
     skos:definition "A Person that bears some Pastor Role."@en ;
     dcterms:bibliographicCitation "Presbyterian Church in America. Book of Church Order. https://www.pcahistory.org/bco/"@en ;
     skos:example "Tim Keller while serving as a pastor of Redeemer Presbyterian Church in New York City."@en .
@@ -625,7 +625,7 @@ church:ont00000302 a owl:Class ;
                "Kirchenmitglied als Person"@de ,
                "Miembro de iglesia como persona"@es ,
                "Membre d'église en tant que personne"@fr ;
-    rdfs:subClassOf cco:ont00001262 ;
+    rdfs:subClassOf cco2:ont00001262 ;
     skos:definition "A Person that bears some Church Member Role."@en ;
     dcterms:bibliographicCitation "Presbyterian Church in America. Book of Church Order. https://www.pcahistory.org/bco/"@en ;
     skos:example "A person formally entered on the membership roll of a particular church."@en .
@@ -655,7 +655,7 @@ church:ont00000305 a owl:Class ;
                "Regelmäßiger Kirchgänger als Person"@de ,
                "Asistente habitual a la iglesia como persona"@es ,
                "Participant régulier à l'église en tant que personne"@fr ;
-    rdfs:subClassOf cco:ont00001262 ;
+    rdfs:subClassOf cco2:ont00001262 ;
     skos:definition "A Person that bears some Regular Church Attender Role."@en ;
     dcterms:bibliographicCitation "Wikipedia contributors. Church service. https://en.wikipedia.org/wiki/Church_service"@en ;
     skos:example "A person who attends a congregation regularly without becoming a member."@en .
@@ -664,9 +664,9 @@ church:ont00000305 a owl:Class ;
 church:ont00000301 owl:equivalentClass [
     a owl:Class ;
     owl:intersectionOf (
-        cco:ont00001262
+        cco2:ont00001262
         [ a owl:Restriction ;
-          owl:onProperty bfo:BFO_0000196 ;
+          owl:onProperty bfo:0000196 ;
           owl:someValuesFrom church:ont00000003
         ]
     )
@@ -675,9 +675,9 @@ church:ont00000301 owl:equivalentClass [
 church:ont00000302 owl:equivalentClass [
     a owl:Class ;
     owl:intersectionOf (
-        cco:ont00001262
+        cco2:ont00001262
         [ a owl:Restriction ;
-          owl:onProperty bfo:BFO_0000196 ;
+          owl:onProperty bfo:0000196 ;
           owl:someValuesFrom church:ont00000014
         ]
     )
@@ -686,9 +686,9 @@ church:ont00000302 owl:equivalentClass [
 church:ont00000303 owl:equivalentClass [
     a owl:Class ;
     owl:intersectionOf (
-        cco:ont00001262
+        cco2:ont00001262
         [ a owl:Restriction ;
-          owl:onProperty bfo:BFO_0000196 ;
+          owl:onProperty bfo:0000196 ;
           owl:someValuesFrom church:ont00000015
         ]
     )
@@ -697,9 +697,9 @@ church:ont00000303 owl:equivalentClass [
 church:ont00000304 owl:equivalentClass [
     a owl:Class ;
     owl:intersectionOf (
-        cco:ont00001262
+        cco2:ont00001262
         [ a owl:Restriction ;
-          owl:onProperty bfo:BFO_0000196 ;
+          owl:onProperty bfo:0000196 ;
           owl:someValuesFrom church:ont00000016
         ]
     )
@@ -708,9 +708,9 @@ church:ont00000304 owl:equivalentClass [
 church:ont00000305 owl:equivalentClass [
     a owl:Class ;
     owl:intersectionOf (
-        cco:ont00001262
+        cco2:ont00001262
         [ a owl:Restriction ;
-          owl:onProperty bfo:BFO_0000196 ;
+          owl:onProperty bfo:0000196 ;
           owl:someValuesFrom church:ont00000019
         ]
     )
@@ -720,9 +720,9 @@ church:ont00000305 owl:equivalentClass [
 church:ont00000014 owl:equivalentClass [
     a owl:Class ;
     owl:intersectionOf (
-        cco:ont00000175
+        cco2:ont00000175
         [ a owl:Restriction ;
-          owl:onProperty cco:ont00001992 ;
+          owl:onProperty cco2:ont00001992 ;
           owl:someValuesFrom church:ont00000101
         ]
     )
@@ -733,8 +733,18 @@ church:ont00000003 owl:equivalentClass [
     owl:intersectionOf (
         church:ont00000001
         [ a owl:Restriction ;
-          owl:onProperty cco:ont00001992 ;
+          owl:onProperty cco2:ont00001992 ;
           owl:someValuesFrom church:ont00000101
         ]
     )
 ] .
+
+# Classes used by the instance patterns in docs/tutorials.
+church:TelephoneNumber a owl:Class ;
+    rdfs:label "Telephone Contact Number"@en, "Telefonkontakt-Nummer"@de,
+               "N?mero de contacto telef?nico"@es, "Num?ro de contact t?l?phonique"@fr ;
+    rdfs:subClassOf cco2:ont00000077 ;
+    skos:definition "A Code Identifier that designates an agent for telephone contact by means of a number assigned within a telephone numbering plan."@en ;
+    skos:scopeNote "The directory uses this number as a contact designator of a person. This does not assert that the person owns a telephone or endpoint, or that the number uniquely identifies that person."@en ;
+    dcterms:bibliographicCitation "ITU-T Recommendation E.164, The international public telecommunication numbering plan. https://www.itu.int/rec/T-REC-E.164"@en ;
+    skos:example "A person's contact number represented by the string +1-716-555-1234."@en .

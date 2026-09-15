@@ -1,0 +1,32 @@
+flowchart BT
+  classDef owlClass fill:lightyellow,stroke:yellow,color:#000;
+  classDef owlNamedIndividual fill:lightpurple,stroke:purple,color:#000;
+  classDef owlAnnotationProperty fill:#ffd8b1,stroke:orange,color:#000;
+  classDef owlDatatypeProperty fill:lightgreen,stroke:green,color:#000;
+
+  p1["ex:person_001<br/>Person instance"]
+  b1["ex:birth_001<br/>Birth instance"]
+  d1["ex:day_1980_01_15<br/>Day instance"]
+  di1["ex:dateIdentifier_1980_01_15<br/>Date Identifier instance"]
+  lit1["&quot;1980-01-15&quot;^^xsd:date<br/>literal node"]
+
+
+  pc["cco2:Person<br/>https://www.commoncoreontologies.org/ont00001262"]
+  bc["cco2:Birth<br/>https://www.commoncoreontologies.org/ont00001237"]
+  dc["cco2:Day<br/>https://www.commoncoreontologies.org/ont00000800"]
+  dic["cco2:Date Identifier<br/>https://www.commoncoreontologies.org/ont00000529"]
+
+  p1 -->|"participates in<br/>http://purl.obolibrary.org/obo/BFO_0000056"| b1
+  b1 -->|"occupies temporal region<br/>http://purl.obolibrary.org/obo/BFO_0000199"| d1
+  d1 -->|"designated by<br/>https://www.commoncoreontologies.org/ont00001879"| di1
+  di1 -->|"value<br/>http://www.w3.org/1999/02/22-rdf-syntax-ns#value"| lit1
+
+  p1 -.->|"rdf:type<br/>http://www.w3.org/1999/02/22-rdf-syntax-ns#type"| pc
+  b1 -.->|"rdf:type<br/>http://www.w3.org/1999/02/22-rdf-syntax-ns#type"| bc
+  d1 -.->|"rdf:type<br/>http://www.w3.org/1999/02/22-rdf-syntax-ns#type"| dc
+  di1 -.->|"rdf:type<br/>http://www.w3.org/1999/02/22-rdf-syntax-ns#type"| dic
+
+
+  class p1,b1,d1,di1 owlNamedIndividual;
+  class pc,bc,dc,dic owlClass;
+  class lit1 owlDatatypeProperty;

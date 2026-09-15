@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
+  <uri name="https://example.org/church-directory/entry#ontology" uri="directory-entry-extension.ttl"/>
+  <uri name="https://example.org/church-directory/ontology#ontology" uri="church-directory-cco-extension.ttl"/>
+  <uri name="https://www.commoncoreontologies.org/CommonCoreOntologiesMerged" uri="CommonCoreOntologiesMerged.ttl"/>
+  <uri name="https://www.commoncoreontologies.org/2026-08-13/CommonCoreOntologiesMerged" uri="CommonCoreOntologiesMerged.ttl"/>
+</catalog>

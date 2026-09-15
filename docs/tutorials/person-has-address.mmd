@@ -1,0 +1,62 @@
+flowchart LR
+  %% Prefixes: cco2: https://www.commoncoreontologies.org/
+  %% app: https://example.org/church-directory/entry#
+  %% bfo: http://purl.obolibrary.org/obo/BFO_
+  %% rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  %% owl: http://www.w3.org/2002/07/owl#
+  %% rdfs: http://www.w3.org/2000/01/rdf-schema#
+  %% xsd: http://www.w3.org/2001/XMLSchema#
+  %% Every purple entity also has rdf:type owl:NamedIndividual.
+  %% Source-field provenance is omitted for readability.
+  classDef owlClass fill:lightyellow,stroke:yellow,color:#000;
+  classDef owlNamedIndividual fill:lightpurple,stroke:purple,color:#000;
+  classDef owlAnnotationProperty fill:#ffd8b1,stroke:orange,color:#000;
+  classDef owlDatatypeProperty fill:lightgreen,stroke:green,color:#000;
+
+  subgraph Residence["Person and residence site"]
+    p["Person<br/>urn:uuid:00000000-0000-4000-8000-000000000001<br/>rdf:type cco2:ont00001262"]
+    g["Residence geospatial region - a BFO site<br/>urn:uuid:00000000-0000-4000-8000-000000000003<br/>rdf:type cco2:ont00000472"]
+    p -->|"resides in / app:residesIn"| g
+  end
+
+  subgraph Address["Address and its information-content parts"]
+    a["Postal address<br/>urn:uuid:00000000-0000-4000-8000-000000000004<br/>rdf:type app:PostalAddress"]
+    street["Street + number<br/>urn:uuid:00000000-0000-4000-8000-000000000005<br/>rdf:type app:StreetAddressComponent"]
+    unit["Apartment / suite - optional<br/>urn:uuid:00000000-0000-4000-8000-000000000006<br/>rdf:type app:ExtendedAddressComponent"]
+    city["Postal locality name<br/>urn:uuid:00000000-0000-4000-8000-000000000007<br/>rdf:type app:PostalLocalityName"]
+    state["State / region designator<br/>urn:uuid:00000000-0000-4000-8000-000000000008<br/>rdf:type app:AdministrativeAreaDesignator"]
+    zip["ZIP / postal code<br/>urn:uuid:00000000-0000-4000-8000-000000000009<br/>rdf:type app:PostalCode"]
+    country["Country designator<br/>urn:uuid:00000000-0000-4000-8000-000000000010<br/>rdf:type app:CountryDesignator"]
+    a -->|"has continuant part / bfo:0000178"| street
+    a -->|"has continuant part / bfo:0000178"| unit
+    a -->|"has continuant part / bfo:0000178"| city
+    a -->|"has continuant part / bfo:0000178"| state
+    a -->|"has continuant part / bfo:0000178"| zip
+    a -->|"has continuant part / bfo:0000178"| country
+    box["PO box - optional<br/>urn:uuid:00000000-0000-4000-8000-000000000011<br/>rdf:type app:PostOfficeBoxIdentifier"]
+    a -->|"has continuant part / bfo:0000178"| box
+    %% Postal names alone do not establish city/state geographic referents.
+  end
+  g -->|"designated by / cco2:ont00001879"| a
+
+  subgraph Values["Literal values"]
+    av["&quot;12 Main St, Apt 4B, PO Box 42, Springfield, MA, 01103, US&quot;^^xsd:string"]
+    sv["&quot;12 Main St&quot;^^xsd:string"]
+    uv["&quot;Apt 4B&quot;^^xsd:string"]
+    cv["&quot;Springfield&quot;^^xsd:string"]
+    rv["&quot;MA&quot;^^xsd:string"]
+    zv["&quot;01103&quot;^^xsd:string"]
+    countryv["&quot;US&quot;^^xsd:string"]
+  end
+  a -->|"rdf:value"| av
+  street -->|"rdf:value"| sv
+  unit -->|"rdf:value"| uv
+  city -->|"rdf:value"| cv
+  state -->|"rdf:value"| rv
+  zip -->|"rdf:value"| zv
+  country -->|"rdf:value"| countryv
+  box -->|"rdf:value"| boxv["&quot;PO Box 42&quot;^^xsd:string"]
+
+  class p,g,a,street,unit,city,state,zip,country,box owlNamedIndividual;
+  class av,sv,uv,cv,rv,zv,countryv,boxv owlDatatypeProperty;
+  class ac,dc,zc,cc owlClass;

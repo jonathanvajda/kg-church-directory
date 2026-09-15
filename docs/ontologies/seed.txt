@@ -1,0 +1,26 @@
+http://purl.obolibrary.org/obo/BFO_0000023            # role
+http://purl.obolibrary.org/obo/BFO_0000056            # participates in
+http://purl.obolibrary.org/obo/BFO_0000178            # has continuant part
+http://purl.obolibrary.org/obo/BFO_0000196            # bearer of
+http://purl.obolibrary.org/obo/BFO_0000199            # occupies temporal region
+https://www.commoncoreontologies.org/ont00000003      # Designative Name
+https://www.commoncoreontologies.org/ont00000077      # Code Identifier
+https://www.commoncoreontologies.org/ont00000175      # Organization Member Role
+https://www.commoncoreontologies.org/ont00000228      # Planned Act
+https://www.commoncoreontologies.org/ont00000472      # Geospatial Region
+https://www.commoncoreontologies.org/ont00000529      # Date Identifier
+https://www.commoncoreontologies.org/ont00000686      # Designative Information Content Entity
+https://www.commoncoreontologies.org/ont00000800      # Day
+https://www.commoncoreontologies.org/ont00000853      # Descriptive Information Content Entity
+https://www.commoncoreontologies.org/ont00000906      # Email Box
+https://www.commoncoreontologies.org/ont00000990      # Nickname
+https://www.commoncoreontologies.org/ont00001014      # Proper Name
+https://www.commoncoreontologies.org/ont00001180      # Organization
+https://www.commoncoreontologies.org/ont00001237      # Birth
+https://www.commoncoreontologies.org/ont00001262      # Person
+https://www.commoncoreontologies.org/ont00001808      # is about
+https://www.commoncoreontologies.org/ont00001813      # uses
+https://www.commoncoreontologies.org/ont00001879      # designated by
+https://www.commoncoreontologies.org/ont00001917      # described by
+https://www.commoncoreontologies.org/ont00001992      # has organizational context
+https://www.commoncoreontologies.org/ont00002070      # Email Address

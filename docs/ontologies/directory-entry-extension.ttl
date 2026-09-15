@@ -1,54 +1,107 @@
-@prefix cco: <https://www.commoncoreontologies.org/> .
+@prefix cco2: <https://www.commoncoreontologies.org/> .
 @prefix entry: <https://example.org/church-directory/entry#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/BFO_> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 
-entry:ContactLocationDescription a owl:Class ;
-    rdfs:label "Contact Location Description"@en ;
-    rdfs:subClassOf cco:ont00000853 ;
-    skos:definition "A Descriptive Information Content Entity that associates a person with a geospatial region for contact purposes."@en .
+entry:residesIn a owl:ObjectProperty ;
+    rdfs:label "resides in"@en ;
+    rdfs:domain cco2:ont00001262 ;
+    rdfs:range bfo:0000029 ;
+    skos:definition "An object property that relates a Person to a Site when the person is agent in some act of residing and that act of residing occurs at that site."@en ;
+    skos:scopeNote "The application uses this relation for directory residence assertions derived from postal address fields. The site may be designated by a postal address without separately resolving a building, parcel, city, or state individual."@en .
 
 entry:FamilyName a owl:Class ;
     rdfs:label "Family Name Component"@en ;
-    rdfs:subClassOf cco:ont00000003 ;
+    rdfs:subClassOf cco2:ont00000003 ;
     skos:definition "A Designative Name that is a family name component of a person's proper name."@en .
 
 entry:GivenName a owl:Class ;
     rdfs:label "Given Name Component"@en ;
-    rdfs:subClassOf cco:ont00000003 ;
+    rdfs:subClassOf cco2:ont00000003 ;
     skos:definition "A Designative Name that is a given name component of a person's proper name."@en .
 
 entry:MiddleName a owl:Class ;
     rdfs:label "Middle Name Component"@en ;
-    rdfs:subClassOf cco:ont00000003 ;
+    rdfs:subClassOf cco2:ont00000003 ;
     skos:definition "A Designative Name that is a middle name component of a person's proper name."@en .
 
 entry:NamePrefix a owl:Class ;
     rdfs:label "Name Prefix Component"@en ;
-    rdfs:subClassOf cco:ont00000003 ;
+    rdfs:subClassOf cco2:ont00000003 ;
     skos:definition "A Designative Name that is a name prefix component of a person's proper name."@en .
 
 entry:NameSuffix a owl:Class ;
     rdfs:label "Name Suffix Component"@en ;
-    rdfs:subClassOf cco:ont00000003 ;
+    rdfs:subClassOf cco2:ont00000003 ;
     skos:definition "A Designative Name that is a name suffix component of a person's proper name."@en .
 
 entry:PostalAddress a owl:Class ;
-    rdfs:label "Postal Address Identifier"@en ;
-    rdfs:subClassOf cco:ont00000390 ;
-    skos:definition "A Spatial Region Identifier that designates a region using postal delivery addressing conventions."@en .
+    rdfs:label "Postal Address Identifier"@en, "Postanschrift-Identifikator"@de, "Identificador de dirección postal"@es, "Identifiant d'adresse postale"@fr ;
+    rdfs:subClassOf cco2:ont00000686 ;
+    skos:definition "A Designative Information Content Entity that identifies a destination for postal delivery according to the addressing conventions of a postal system."@en ;
+    skos:scopeNote "Its continuant parts are information entities, not the streets, cities, or administrative regions they may designate. A destination may be a site rather than a BFO spatial region. A partially recorded address need not have every component explicitly asserted."@en ;
+    dcterms:bibliographicCitation "USPS Publication 28, Postal Addressing Standards. https://pe.usps.com/text/pub28/welcome.htm"@en ;
+    skos:example "A postal address whose recorded components include 12 Main Street, Springfield, MA, and 01103."@en .
 
-entry:SourceFieldValue a owl:Class ;
-    rdfs:label "Source Field Value"@en ;
-    rdfs:subClassOf cco:ont00000853 ;
-    skos:definition "A Descriptive Information Content Entity that preserves the lexical value of a directory input field, designated by a code identifier naming that field."@en .
+entry:StreetAddressComponent a owl:Class ;
+    rdfs:label "Street Address Component"@en, "Straßenanschrift-Komponente"@de, "Componente de dirección de calle"@es, "Composant d'adresse de voie"@fr ;
+    rdfs:subClassOf cco2:ont00000686 ;
+    skos:definition "A Designative Information Content Entity that is a component of a postal address and identifies a delivery destination by its thoroughfare and, where assigned, its premise number."@en ;
+    dcterms:bibliographicCitation "USPS Publication 28, section 231, Components. https://pe.usps.com/text/pub28/28c2_012.htm"@en ;
+    skos:example "The street-address component with rdf:value 12 Main Street."@en .
+
+entry:ExtendedAddressComponent a owl:Class ;
+    rdfs:label "Extended Address Component"@en, "Adresszusatz-Komponente"@de, "Componente adicional de dirección"@es, "Composant de complément d'adresse"@fr ;
+    rdfs:subClassOf cco2:ont00000686 ;
+    skos:definition "A Designative Information Content Entity that is a component of a postal address and identifies a secondary delivery destination within premises, such as an apartment, suite, floor, or building section."@en ;
+    dcterms:bibliographicCitation "USPS Publication 28, section 213, Secondary Address Unit Designators. https://pe.usps.com/text/pub28/28c2_003.htm"@en ;
+    skos:example "The secondary-address component with rdf:value Apt 4B."@en .
+
+entry:PostalLocalityName a owl:Class ;
+    rdfs:label "Postal Locality Name"@en, "Postalischer Ortsname"@de, "Nombre de localidad postal"@es, "Nom de localité postale"@fr ;
+    rdfs:subClassOf cco2:ont00000003 ;
+    skos:definition "A Designative Name that is a component of a postal address and names the postal locality used for delivery to the designated destination."@en ;
+    skos:scopeNote "A postal locality need not be an incorporated city or match municipal boundaries. A raw city column alone does not establish an instance of CCO City."@en ;
+    dcterms:bibliographicCitation "USPS Publication 28, section 221, City Names. https://pe.usps.com/text/pub28/28c2_006.htm"@en ;
+    skos:example "The postal-locality name with rdf:value Springfield."@en .
+
+entry:AdministrativeAreaDesignator a owl:Class ;
+    rdfs:label "Postal Administrative Area Designator"@en, "Postalischer Verwaltungsgebietsbezeichner"@de, "Designador de área administrativa postal"@es, "Désignateur de zone administrative postale"@fr ;
+    rdfs:subClassOf cco2:ont00000686 ;
+    skos:definition "A Designative Information Content Entity that is a component of a postal address and identifies its state, province, or other administrative area by a name or abbreviation used in postal addressing."@en ;
+    dcterms:bibliographicCitation "USPS Publication 28, Appendix B, Two-Letter State and Possession Abbreviations. https://pe.usps.com/text/pub28/28apb.htm"@en ;
+    skos:example "The administrative-area designator with rdf:value MA."@en .
+
+entry:CountryDesignator a owl:Class ;
+    rdfs:label "Postal Country Designator"@en, "Postalischer Länderbezeichner"@de, "Designador de país postal"@es, "Désignateur de pays postal"@fr ;
+    rdfs:subClassOf cco2:ont00000686 ;
+    skos:definition "A Designative Information Content Entity that is a component of a postal address and identifies the destination country by a name or code."@en ;
+    dcterms:bibliographicCitation "Universal Postal Union, Addressing solutions. https://www.upu.int/en/Postal-Solutions/Programmes-Services/Addressing-Solutions"@en ;
+    skos:example "The country designator with rdf:value United States."@en .
+
+entry:PostalCode a owl:Class ;
+    rdfs:label "Postal Code Identifier"@en, "Postleitzahl-Identifikator"@de, "Identificador de código postal"@es, "Identifiant de code postal"@fr ;
+    rdfs:subClassOf cco2:ont00000077 ;
+    skos:definition "A Code Identifier that is assigned by a postal system to identify a delivery area, route, delivery point, or recipient for sorting and delivering mail."@en ;
+    skos:scopeNote "Includes ZIP and ZIP+4 codes. Tokens are strings, retaining leading zeros, spaces, and hyphens. No assumption is made that the referent is a governmental administrative region."@en ;
+    dcterms:bibliographicCitation "USPS Publication 28, Postal Addressing Standards. https://pe.usps.com/text/pub28/welcome.htm"@en ;
+    skos:example "A ZIP code with rdf:value 01103, or a ZIP+4 code with rdf:value 01103-1234."@en .
+
+entry:PostOfficeBoxIdentifier a owl:Class ;
+    rdfs:label "Post Office Box Identifier"@en, "Postfach-Identifikator"@de, "Identificador de apartado postal"@es, "Identifiant de boîte postale"@fr ;
+    rdfs:subClassOf cco2:ont00000077 ;
+    skos:definition "A Code Identifier that is assigned by a postal service to designate a post office box for mail delivery within a specified post office."@en ;
+    dcterms:bibliographicCitation "USPS Publication 28, section 28, Post Office Box Addresses. https://pe.usps.com/text/pub28/28c2_036.htm"@en ;
+    skos:example "A post-office-box identifier with rdf:value PO Box 42."@en .
 
 entry:TelephoneNumber a owl:Class ;
     rdfs:label "Telephone Number Identifier"@en ;
-    rdfs:subClassOf cco:ont00000077 ;
+    rdfs:subClassOf cco2:ont00000077 ;
     skos:definition "A Code Identifier that designates a telecommunication endpoint within a telephone numbering plan."@en .
 
 entry:ontology a owl:Ontology ;
-    owl:imports <https://example.org/church-directory/ontology#ontology> .
-
+    owl:imports <https://example.org/church-directory/ontology#ontology>, <https://www.commoncoreontologies.org/2026-08-13/CommonCoreOntologiesMerged> ;
+    owl:versionInfo "0.3 - structured postal addresses with rdf:value, aligned to CCO 2.2"@en .

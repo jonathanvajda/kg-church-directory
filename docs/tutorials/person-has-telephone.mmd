@@ -1,0 +1,31 @@
+flowchart LR
+  %% Prefixes: cco2: https://www.commoncoreontologies.org/
+  %%           church: https://example.org/church-directory/ontology#
+  %%           ccodacts: https://github.com/jonathanvajda/cco-d-acts/
+  %%           dir: https://example.org/church-directory/id/
+  classDef owlClass fill:lightyellow,stroke:yellow,color:#000;
+  classDef owlNamedIndividual fill:lightpurple,stroke:purple,color:#000;
+  classDef owlAnnotationProperty fill:#ffd8b1,stroke:orange,color:#000;
+  classDef owlDatatypeProperty fill:lightgreen,stroke:green,color:#000;
+
+  p1["urn:uuid:00000000-0000-4000-8000-000000000001<br/>Person instance"]
+  tel1["dir:telephone-line/%2B17165551234<br/>Telephone Line instance"]
+  ph1["dir:telephone-number/%2B17165551234<br/>Telephone Number Identifier instance"]
+  lit1["&quot;+1-716-555-1234&quot;<br/>literal node"]
+
+
+  pc["cco2:Person<br/>https://www.commoncoreontologies.org/ont00001262"]
+  telc["cco2:Telephone Line<br/>https://www.commoncoreontologies.org/ont00000059"]
+  phc["church:TelephoneNumber<br/>https://example.org/church-directory/ontology#TelephoneNumber"]
+
+  p1 -->|"is normatively responsible for<br/>https://github.com/jonathanvajda/cco-d-acts/ont00000022"| tel1
+  tel1 -->|"designated by<br/>https://www.commoncoreontologies.org/ont00001879"| ph1
+  ph1 -->|"value<br/>http://www.w3.org/1999/02/22-rdf-syntax-ns#value"| lit1
+
+  p1 -.->|"rdf:type<br/>http://www.w3.org/1999/02/22-rdf-syntax-ns#type"| pc
+  tel1 -.->|"rdf:type<br/>http://www.w3.org/1999/02/22-rdf-syntax-ns#type"| telc
+  ph1 -.->|"rdf:type<br/>http://www.w3.org/1999/02/22-rdf-syntax-ns#type"| phc
+
+  class p1,tel1,ph1 owlNamedIndividual;
+  class pc,telc,phc owlClass;
+  class lit1 owlDatatypeProperty;
